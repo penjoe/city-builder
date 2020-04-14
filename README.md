@@ -1,10 +1,18 @@
 # City Builder
 
-**Author**: Joe Pennock - Full-stack JavaScript Developer
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+### **Author**:
+Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penjoe)
 
+### **Version**:
+1.0.1 
+<!-- (increment the patch/fix version number if you make more commits past your first submission) -->
+
+###  Progress 
+Here's the projects [Trello](https://trello.com/b/S1cbilFm/city-builder-api) board
 ## Overview
 The purpose of this application is to give the user an easy means of finding activities to do for a given city location. By entering a cty, the user will get a list of food options, movies and weather for that given area, making it easier to help plan trips.
+
+This app was created as a Code Fellows 301 class project with the purpose of learning how to create and deploy back-end servers. 
 
 ## Getting Started
 To build this app yourself, here are the steps you need to take:
@@ -27,10 +35,8 @@ This project was built with:
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource.
-
--->
+01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+- 04-14-2020 11:28am - Project repository setup: [github PR](https://github.com/penjoe/city-builder/pull/1)
 ## Credits and Collaborations
 - [Matthew Stewart](https://github.com/matthewadamstewart): pair - programming partner 4/14/2020
 
@@ -38,5 +44,12 @@ This project was built with:
 - Number and name of feature: Feature #1 Setup Repo and workflow
 - Estimate of time needed to complete: 2 hours
 - Start time: 9:00am 4/14/2020
-- Finish time:
-- Actual time needed to complete:
+- Finish time: 11:30am 4/14/2020
+- Actual time needed to complete: 2.5 hours
+<hr>
+
+- Number and name of feature: Feature #2 Deploy to Heroku
+- Estimate of time needed to complete: 2 hours
+- Start time: 11:30 4/14/2020
+- Finish time:  4/14/2020
+- Actual time needed to complete: 2.5 hours
