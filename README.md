@@ -4,7 +4,8 @@
 Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penjoe)
 
 ### **Version**:
-1.0.1 
+1.0.0 - initialization
+1.0.1 - deployed to Heroku 
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
@@ -36,8 +37,10 @@ This project was built with:
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
-- 04-14-2020 11:28am - Project repository setup: [github PR](https://github.com/penjoe/city-builder/pull/1)
-## Credits and Collaborations
+- 04-14-2020 11:28am - Project repository setup: [GitHub PR](https://github.com/penjoe/city-builder/pull/1)
+- 04-14-2020 12:56pm - deploy to Heroku [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/2)
+
+## Collaborators
 - [Matthew Stewart](https://github.com/matthewadamstewart): pair - programming partner 4/14/2020
 
 ## Time Estimates
@@ -49,7 +52,7 @@ This project was built with:
 <hr>
 
 - Number and name of feature: Feature #2 Deploy to Heroku
-- Estimate of time needed to complete: 2 hours
-- Start time: 11:30 4/14/2020
-- Finish time:  4/14/2020
-- Actual time needed to complete: 2.5 hours
+- Estimate of time needed to complete: 3 hours
+- Start time: 11:30am 4/14/2020
+- Finish time: 4:30pm 4/14/2020
+- Actual time needed to complete: 5 hours
