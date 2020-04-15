@@ -7,6 +7,7 @@ Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penj
 1.0.0 - initialization
 1.0.1 - test server created
 1.0.2 - handle errors
+1.1.0 - refactor weather data
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
@@ -45,7 +46,9 @@ This project was built with:
 - 04-15-2020 9:45am - add error handling to server [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/5)
 
 ## Collaborators
-- [Matthew Stewart](https://github.com/matthewadamstewart) :  pair - programming partner 4/14/2020
+- [Matthew Stewart](https://github.com/matthewadamstewart) :  pair programming partner 04/14/2020
+- [Volha Charnysh](https://github.com/charnysho) ; pair programming partner 04/15/2020
+- [Peyton Cysewski](https://github.com/Peyton-Cysewski) : pair programming partner 04/15/2020
 
 ## Time Estimates
 - Number and name of feature: Feature #1 Setup Repo and workflow
@@ -60,3 +63,11 @@ This project was built with:
 - Start time: 11:30am 4/14/2020
 - Finish time: 4:30pm 4/14/2020
 - Actual time needed to complete: 5 hours
+<hr>
+
+- Number and name of feature: Feature #3 Refactor data
+- Estimate of time needed to complete: 2 hours
+- Start time: 9:30am 4/15/2020
+- Finish time: 11:30am 4/15/2020
+- Actual time needed to complete:
+<hr>
