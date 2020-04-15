@@ -3,6 +3,7 @@
 // importing libraries and source code allowing methods to be used on those variables
 require('dotenv').config();
 const express = require('express');
+const superagent = require('superagent');
 const app = express();
 const cors = require('cors');
 
@@ -16,36 +17,37 @@ function Location(city, data) {
   // this.longitude = data.lon;
 }
 
-//request comes from front end via user input, response is data server sends back
-function handleLocation( request, response) {
-  let location;
-  const locationData = require('./data/geo.json');
-  const cityQuery = request.query.city; // input from user
-  console.log(cityQuery, 'cityQuery')
-
-  for (let i in locationData) {
-    if (locationData[i].display_name.toLowerCase().includes(cityQuery.toLowerCase())) {
-      location = new Location(cityQuery, locationData[i])
-      response.status(200).send(location);
-      console.log(location, 'test location')
-    } 
-  }
-  if (typeof location !== 'undefined') {
-    response.status(200).send(location);
-  } else {
-    throw new Error('BROKEN');
-  }
-  // const latitude = jsonData[0].lat;
-  // const longitude = jsonData[0].lon;
-  // response.send('Woops');
-}
-
-// handleError('something is wrong', request, response)
-
 function Forecast(date, forecast) {
   this.forecast = forecast;
   this.time = new Date(date).toDateString();
 }
+
+//request comes from front end via user input, response is data server sends back
+function handleLocation( request, response) {
+  let cityQuery = request.query.city; // input from user
+  const key = process.env.LOCATIONIQ_API_KEY; // api key
+  const locationURL = `https://us1.locationiq.com/v1/search.php?key=${key}&q=${cityQuery}&format=json&limit=1` // location API url
+  console.log('location url', locationURL)
+
+  superagent.get(locationURL)
+    .then( locationResponse => {
+      const data = locationResponse.body;
+      data.map( idx => {
+        console.log('.map parameter', idx)
+        if (idx.display_name.search(cityQuery)) {
+          const location = new Location(cityQuery, idx)
+          console.log(location)
+          response.send(location);
+        }
+      })
+    })
+    .catch( error => {
+      handleError('something is wrong', request, response);
+    });
+}
+
+// handleError('something is wrong', request, response)
+
 
 function handleWeather(request, response) {
   const weatherData = require('./data/darksky.json').daily.data;
