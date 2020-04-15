@@ -5,7 +5,8 @@ Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penj
 
 ### **Version**:
 1.0.0 - initialization
-1.0.1 - test server created 
+1.0.1 - test server created
+1.0.2 - handle errors
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
