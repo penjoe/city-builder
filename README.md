@@ -42,6 +42,7 @@ This project was built with:
 - 04-14-2020 11:28am - Project repository setup: [GitHub PR](https://github.com/penjoe/city-builder/pull/1)
 - 04-14-2020 12:56pm - deploy to Heroku [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/2)
 - 04-14-2020 11:32pm - test server.js created [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/3)
+- 04-15-2020 9:45am - add error handling to server [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/5)
 
 ## Collaborators
 - [Matthew Stewart](https://github.com/matthewadamstewart) :  pair - programming partner 4/14/2020
