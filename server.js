@@ -21,14 +21,18 @@ function handleLocation( request, response) {
   const cityQuery = request.query.city;
 
   const locationData = require('./data/geo.json');
-
+  let location;
   for (var i in locationData) {
     if (locationData[i].display_name.search(cityQuery)) {
-      const location = new Location(cityQuery, locationData[i])
+      location = new Location(cityQuery, locationData[i])
       console.log('success')
       response.send(location);
-      return;
-    }
+    } 
+  }
+  if (typeof location !== 'undefined') {
+    response.status(200).send(location);
+  } else {
+    throw new Error('BROKEN');
   }
 
   // const latitude = jsonData[0].lat;
@@ -53,19 +57,17 @@ function handleWeather(request, response) {
   response.send(results);
 }
 
-// function handleError(error, request, response) {
-//   response.status(500).send({
-//     status: 500,
-//     responseTest: 'sorry, something went wrong',
-//   })
-// }
+function handleError(error, request, response, next) {
+  response.status(500).send({
+    status: 500,
+    responseTest: 'sorry, something went wrong',
+  });
+}
 
 app.use(cors());
 app.get('/location', handleLocation);
 app.get('/weather', handleWeather)
-// app.use( (request, response) => {
-//   handleError('something bad happened', request, response)
-// });
+app.use(handleError);
 
 
 // Start our server, and listen for requests
