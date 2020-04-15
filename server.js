@@ -27,7 +27,6 @@ function handleLocation( request, response) {
   let cityQuery = request.query.city; // input from user
   const key = process.env.LOCATIONIQ_API_KEY; // api key
   const locationURL = `https://us1.locationiq.com/v1/search.php?key=${key}&q=${cityQuery}&format=json&limit=1` // location API url
-  console.log('location url', locationURL)
 
   superagent.get(locationURL)
     .then( locationResponse => {
@@ -36,13 +35,12 @@ function handleLocation( request, response) {
         console.log('.map parameter', idx)
         if (idx.display_name.search(cityQuery)) {
           const location = new Location(cityQuery, idx)
-          console.log(location)
           response.send(location);
         }
       })
     })
     .catch( error => {
-      handleError('something is wrong', request, response);
+      handleError('this location does not exist', request, response);
     });
 }
 
