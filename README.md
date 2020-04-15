@@ -7,6 +7,7 @@ Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penj
 1.0.0 - initialization
 1.0.1 - test server created
 1.0.2 - handle errors
+1.1.0 - refactor weather data
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
