@@ -46,6 +46,7 @@ This project was built with:
 - 04-14-2020 11:32pm - test server.js created [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/3)
 - 04-15-2020 9:45am - add error handling to server [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/5)
 - 04-15-2020 10:55am reformated weather data -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/7)
+- 04-15-2020 12:30pm pull location from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/8)
 
 ## Collaborators
 - [Matthew Stewart](https://github.com/matthewadamstewart) :  pair programming partner 04/14/2020
@@ -77,6 +78,6 @@ This project was built with:
 - Number and name of feature: Feature #4 add location api
 - Estimate of time needed to complete: 2
 - Start time: 11:00am 4/15/2020
-- Finish time:  4/15/2020
-- Actual time needed to complete:
+- Finish time: 12:30pm 4/15/2020
+- Actual time needed to complete: 1.5 hours
 <hr>
