@@ -8,7 +8,8 @@ Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penj
 1.0.1 - test server created
 1.0.2 - handle errors
 1.1.0 - refactored weather data format
-1.1.1 - add location api
+1.1.1 - add location api to get lat/lon locations
+1.1.2 - add weather api to get current weather for location entered
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
@@ -47,6 +48,7 @@ This project was built with:
 - 04-15-2020 9:45am - add error handling to server [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/5)
 - 04-15-2020 10:55am reformated weather data -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/7)
 - 04-15-2020 12:30pm pull location from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/8)
+- 04-15-2020  pull weather from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/9)
 
 ## Collaborators
 - [Matthew Stewart](https://github.com/matthewadamstewart) :  pair programming partner 04/14/2020
@@ -80,4 +82,11 @@ This project was built with:
 - Start time: 11:00am 4/15/2020
 - Finish time: 12:30pm 4/15/2020
 - Actual time needed to complete: 1.5 hours
+<hr>
+
+- Number and name of feature: Feature #5 add weather api
+- Estimate of time needed to complete: 2.5
+- Start time: 9:00pm 4/14/2020
+- Finish time: 12:00am 4/16/2020
+- Actual time needed to complete: 3 hours
 <hr>
