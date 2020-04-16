@@ -5,11 +5,12 @@ Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penj
 
 ### **Version**:
 1.0.0 - initialization
-1.0.1 - test server created
-1.0.2 - handle errors
-1.1.0 - refactored weather data format
-1.1.1 - add location api to get lat/lon locations
-1.1.2 - add weather api to get current weather for location entered
+1.1.0 - test server created
+1.2.0 - handle errors
+2.0.0 - refactored weather data format
+2.1.0 - add a location api to get lat/lon locations
+2.2.0 - add a weather api to get current weather for location entered
+2.3.0 - add a trails api to get a list of local hkes for location entered
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
@@ -48,12 +49,13 @@ This project was built with:
 - 04-15-2020 9:45am - add error handling to server [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/5)
 - 04-15-2020 10:55am reformated weather data -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/7)
 - 04-15-2020 12:30pm pull location from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/8)
-- 04-15-2020  pull weather from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/9)
+- 04-15-2020 11:55pm pull weather from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/9)
+- 04-16-2020 get trails list from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/10)
 
 ## Collaborators
 - [Matthew Stewart](https://github.com/matthewadamstewart) :  pair programming partner 04/14/2020
-- [Volha Charnysh](https://github.com/charnysho) ; pair programming partner 04/15/2020
-- [Peyton Cysewski](https://github.com/Peyton-Cysewski) : pair programming partner 04/15/2020
+- [Volha Charnysh](https://github.com/charnysho) ; pair programming partner 04/15/2020, 4/16/2020 
+- [Peyton Cysewski](https://github.com/Peyton-Cysewski) : pair programming partner 04/15/2020, 4/16/2020
 
 ## Time Estimates
 - Number and name of feature: Feature #1 Setup Repo and workflow
@@ -89,4 +91,11 @@ This project was built with:
 - Start time: 9:00pm 4/14/2020
 - Finish time: 12:00am 4/16/2020
 - Actual time needed to complete: 3 hours
+<hr>
+
+- Number and name of feature: Feature # add trails api
+- Estimate of time needed to complete: 3 hours
+- Start time: 12:30am 4/16/2020
+- Finish time:  4/16/2020
+- Actual time needed to complete:
 <hr>
