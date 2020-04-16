@@ -1,14 +1,18 @@
 'use strict'
 
-// importing libraries and source code allowing methods to be used on those variables
+// importing libraries and source code to dependencies allowing methods to be used on those variables
 require('dotenv').config();
 const express = require('express');
 const superagent = require('superagent');
-const app = express();
+const pg = require('pg')
 const cors = require('cors');
 
 // Taking PORT from .env
 const PORT = process.env.PORT || 3000;
+
+// initiates express and psql database
+const app = express();
+const dbClient = new pg.Client(process.env.DATABASE_URL);
 
 // creates location objects
 function Location(city, data) {
