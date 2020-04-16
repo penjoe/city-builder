@@ -6,11 +6,13 @@ Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penj
 ### **Version**:
 1.0.0 - initialization
 1.1.0 - test server created
-1.2.0 - handle errors
+1.2.0 - added function to handle errors
 2.0.0 - refactored weather data format
-2.1.0 - add a location api to get lat/lon locations
-2.2.0 - add a weather api to get current weather for location entered
-2.3.0 - add a trails api to get a list of local hkes for location entered
+2.1.0 - added a location api to get lat/lon locations
+2.2.0 - added a weather api to get current weather for location entered
+2.3.0 - added a trails api to get a list of local hikes for location entered
+3.0.0 - added SQL database to save previous location queries
+3.0.1 - installed pg dependencies, set up db framework 
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
@@ -93,9 +95,16 @@ This project was built with:
 - Actual time needed to complete: 3 hours
 <hr>
 
-- Number and name of feature: Feature # add trails api
+- Number and name of feature: Feature #6 add trails api
 - Estimate of time needed to complete: 3 hours
 - Start time: 12:30am 4/16/2020
-- Finish time:  4/16/2020
-- Actual time needed to complete:
+- Finish time:  3:00 am 4/16/2020
+- Actual time needed to complete: 2.5 hours
+<hr>
+
+- Number and name of feature: Feature #7 add SQL database
+- Estimate of time needed to complete: 2 hours
+- Start time: 11:00am 4/16/2020
+- Finish time: 4/16/2020
+- Actual time needed to complete: 
 <hr>
