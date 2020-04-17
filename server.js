@@ -14,6 +14,15 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const dbClient = new pg.Client(process.env.DATABASE_URL);
 
+// sets connection to database
+dbClient.connect(error => {
+  if (error) {
+    console.error('Connect to database: Failed', error.stack)
+  } else {
+    console.log('Connect to database: Success')
+  }
+})
+
 // creates location objects
 function Location(city, data) {
   this.search_query = city;
@@ -42,30 +51,39 @@ function Trails(idx) {
   this.condition_time = idx.conditionDate.slice(11, 19);
 }
 
+// Gets location data
 //request comes from front end via user input, response is data server sends back
 function handleLocation( request, response) {
-  let cityQuery = request.query.city; // input from user
+
+  const cityQuery = request.query.city; // input from user
   const locationKey = process.env.LOCATIONIQ_API_KEY; // api key
   const locationURL = `https://us1.locationiq.com/v1/search.php?key=${locationKey}&q=${cityQuery}&format=json&limit=1` // location API url
 
-  superagent.get(locationURL)
-    .then( locationResponse => {
-      const data = locationResponse.body;
-      console.log('location data' ,data)
-      data.map( idx => {
-        if (idx.display_name.search(cityQuery)) {
-          const location = new Location(cityQuery, idx)
-          response.send(location);
-        }
-      })
+  let searchSQL = `SELECT * FROM locations WHERE search_query=$1;`;
+  let searchValues = [cityQuery];
+
+  dbClient.query(searchSQL, searchValues)
+    .then(sqlResults => {
+      if (sqlResults.rows[0]) {
+        console.log('found in DB')
+        response.status(200).send(sqlResults.rows[0])
+      } else {
+        superagent.get(locationURL)
+          .then(locationResponse => {
+            let location = new Location(cityQuery, locationResponse.body[0]);
+            let insertSQL = `INSERT INTO locations (search_query, formatted_query, latitude, longitude) Values ($1, $2, $3, $4) RETURNING *`;
+            let insertValues = [location.search_query, location.formatted_query, location.latitude, location.longitude];
+            dbClient.query(insertSQL, insertValues)
+            
+            response.status(200).send(location)
+          })
+          .catch(error => {handleError(error, request, response, next)});
+      }
     })
-    .catch( error => {
-      handleError('this location does not exist', request, response, next);
-    });
+    .catch(error => {handleError(error, request, response)});
 }
 
-// handleError('something is wrong', request, response)
-// Gets location data
+// Gets weather data
 function handleWeather(request, response) {
   let {latitude, longitude} = request.query;
   const weatherKey = process.env.WEATHERBIT_API_KEY;
@@ -84,6 +102,7 @@ function handleWeather(request, response) {
     });
 }
 
+// get hiking trails data
 function handleTrails(request, response) {
   let {latitude, longitude} = request.query;
   const trailsKey = process.env.TRAILS_API_KEY;
@@ -102,11 +121,12 @@ function handleTrails(request, response) {
     });
 }
 
+// error handlers
 function routeError(error, request, response, next) {
   response.status(404).send('Route not found')
 }
 
-// Gets weather data
+
 function handleError(error, request, response, next) {
   response.status(500).send(error);
 }
