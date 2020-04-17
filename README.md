@@ -4,17 +4,19 @@
 Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penjoe)
 
 ### **Version**:
-1.0.0 - initialization
-1.1.0 - test server created
-1.2.0 - added function to handle errors
-2.0.0 - refactored weather data format
-2.1.0 - added a location api to get lat/lon locations
-2.2.0 - added a weather api to get current weather for location entered
-2.3.0 - added a trails api to get a list of local hikes for location entered
-3.0.0 - added SQL database to save previous location queries
-3.0.1 - installed pg dependencies, set up db framework
-3.1.0 - initialized database, added schema.sql file 
-3.2.0 - populate database with data pulled from API
+- 1.0.0 - initialization
+- 1.1.0 - test server created
+- 1.2.0 - added function to handle errors
+- 2.0.0 - refactored weather data format
+- 2.1.0 - added a location api to get lat/lon locations
+- 2.2.0 - added a weather api to get current weather for location entered
+- 2.3.0 - added a trails api to get a list of local hikes for location entered
+- 3.0.0 - added SQL database to save previous location queries
+- 3.0.1 - installed pg dependencies, set up db framework
+- 3.1.0 - initialized database, added schema.sql file 
+- 3.2.0 - populate database with data pulled from API
+- 3.2.1 - added connection to db
+- 3.2.2 - db connection successful, rendering to page, not storing data
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
