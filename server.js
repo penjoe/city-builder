@@ -47,9 +47,11 @@ function handleLocation( request, response) {
   let cityQuery = request.query.city; // input from user
   const locationKey = process.env.LOCATIONIQ_API_KEY; // api key
   const locationURL = `https://us1.locationiq.com/v1/search.php?key=${locationKey}&q=${cityQuery}&format=json&limit=1` // location API url
+
   superagent.get(locationURL)
     .then( locationResponse => {
       const data = locationResponse.body;
+      console.log('location data' ,data)
       data.map( idx => {
         if (idx.display_name.search(cityQuery)) {
           const location = new Location(cityQuery, idx)
@@ -83,24 +85,25 @@ function handleWeather(request, response) {
 }
 
 function handleTrails(request, response) {
-  console.log('helo')
   let {latitude, longitude} = request.query;
   const trailsKey = process.env.TRAILS_API_KEY;
   const trailsUrl = `https://www.hikingproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&maxDistance=10&key=${trailsKey}`
-  console.log(trailsUrl)
+
   superagent.get(trailsUrl)
     .then( element => {
       const trails = element.body.trails;
-      console.log(trails)
       let hikes = trails.map( idx => {
         return new Trails(idx)
       });
-      console.log(hikes);
       response.status(200).send(hikes);
     })
     .catch( error => {
       handleError('these are not the trails you are looking for', request, response)
     });
+}
+
+function routeError(error, request, response, next) {
+  response.status(404).send('Route not found')
 }
 
 // Gets weather data
@@ -114,6 +117,7 @@ app.get('/location', handleLocation);
 app.get('/weather', handleWeather);
 app.get('/trails', handleTrails);
 app.use(handleError);
+app.use('*', routeError)
 
 
 // Start our server, and listen for requests

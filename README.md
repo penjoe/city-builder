@@ -12,7 +12,8 @@ Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penj
 2.2.0 - added a weather api to get current weather for location entered
 2.3.0 - added a trails api to get a list of local hikes for location entered
 3.0.0 - added SQL database to save previous location queries
-3.0.1 - installed pg dependencies, set up db framework 
+3.0.1 - installed pg dependencies, set up db framework
+3.1.0 - initialized database, added schema.sql file 
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
@@ -52,7 +53,8 @@ This project was built with:
 - 04-15-2020 10:55am reformated weather data -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/7)
 - 04-15-2020 12:30pm pull location from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/8)
 - 04-15-2020 11:55pm pull weather from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/9)
-- 04-16-2020 get trails list from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/10)
+- 04-16-2020 03:00am get trails list from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/10)
+- 04-16-2020 12:154am SQL DB setup -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/12)
 
 ## Collaborators
 - [Matthew Stewart](https://github.com/matthewadamstewart) :  pair programming partner 04/14/2020
@@ -105,6 +107,6 @@ This project was built with:
 - Number and name of feature: Feature #7 add SQL database
 - Estimate of time needed to complete: 2 hours
 - Start time: 11:00am 4/16/2020
-- Finish time: 4/16/2020
-- Actual time needed to complete: 
+- Finish time: 11:33pm 4/16/2020
+- Actual time needed to complete: 3 hours
 <hr>
