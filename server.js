@@ -124,3 +124,12 @@ app.use('*', routeError)
 app.listen(PORT, () => {
   console.log('App is running on PORT' + PORT)
 });
+
+// sets connection to database
+dbClient.connect(err => {
+  if (err) {
+    response.send(err)
+  } else {
+    app.listen(PORT)
+  }
+})

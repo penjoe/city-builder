@@ -14,6 +14,7 @@ Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penj
 3.0.0 - added SQL database to save previous location queries
 3.0.1 - installed pg dependencies, set up db framework
 3.1.0 - initialized database, added schema.sql file 
+3.2.0 - populate database with data pulled from API
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
@@ -42,6 +43,7 @@ This project was built with:
 - Express
 - dotenv
 - superagent
+- postgre SQL
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
@@ -55,6 +57,7 @@ This project was built with:
 - 04-15-2020 11:55pm pull weather from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/9)
 - 04-16-2020 03:00am get trails list from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/10)
 - 04-16-2020 12:154am SQL DB setup -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/12)
+- 04-16-2020  populate database with data pulled from API query -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/13)
 
 ## Collaborators
 - [Matthew Stewart](https://github.com/matthewadamstewart) :  pair programming partner 04/14/2020
@@ -109,4 +112,11 @@ This project was built with:
 - Start time: 11:00am 4/16/2020
 - Finish time: 11:33pm 4/16/2020
 - Actual time needed to complete: 3 hours
+<hr>
+
+- Number and name of feature: Feature #8 populate SQL database
+- Estimate of time needed to complete: 3
+- Start time: 11:41pm 4/16/2020
+- Finish time:
+- Actual time needed to complete:
 <hr>
