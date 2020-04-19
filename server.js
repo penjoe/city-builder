@@ -53,7 +53,7 @@ function Trails(idx) {
 
 // Gets location data
 //request comes from front end via user input, response is data server sends back
-function handleLocation( request, response) {
+function handleLocation( request, response, next) {
 
   const cityQuery = request.query.city; // input from user
   const locationKey = process.env.LOCATIONIQ_API_KEY; // api key
@@ -65,11 +65,12 @@ function handleLocation( request, response) {
   dbClient.query(searchSQL, searchValues)
     .then(sqlResults => {
       if (sqlResults.rows[0]) {
-        console.log('found in DB')
-        response.status(200).send(sqlResults.rows[0])
+        console.log('found in DB');
+        response.status(200).send(sqlResults.rows[0]);
       } else {
         superagent.get(locationURL)
           .then(locationResponse => {
+            console.log('in superagent');
             let location = new Location(cityQuery, locationResponse.body[0]);
             let insertSQL = `INSERT INTO locations (search_query, formatted_query, latitude, longitude) Values ($1, $2, $3, $4) RETURNING *`;
             let insertValues = [location.search_query, location.formatted_query, location.latitude, location.longitude];
@@ -80,11 +81,11 @@ function handleLocation( request, response) {
           .catch(error => {handleError(error, request, response, next)});
       }
     })
-    .catch(error => {handleError(error, request, response)});
+    .catch(error => {handleError(error, request, response, next)});
 }
 
 // Gets weather data
-function handleWeather(request, response) {
+function handleWeather(request, response, next) {
   let {latitude, longitude} = request.query;
   const weatherKey = process.env.WEATHERBIT_API_KEY;
   const weatherUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weatherKey}&lang=en&units=I&days=7&lat=${latitude}&lon=${longitude}`;
@@ -103,7 +104,7 @@ function handleWeather(request, response) {
 }
 
 // get hiking trails data
-function handleTrails(request, response) {
+function handleTrails(request, response, next) {
   let {latitude, longitude} = request.query;
   const trailsKey = process.env.TRAILS_API_KEY;
   const trailsUrl = `https://www.hikingproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&maxDistance=10&key=${trailsKey}`
@@ -117,7 +118,7 @@ function handleTrails(request, response) {
       response.status(200).send(hikes);
     })
     .catch( error => {
-      handleError('these are not the trails you are looking for', request, response)
+      handleError('these are not the trails you are looking for', request, response, next)
     });
 }
 
