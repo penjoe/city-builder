@@ -62,6 +62,14 @@ function Movies(idx) {
   this.released_on = idx.release_date;
 }
 
+function Restaurant(idx) {
+  this.name = idx.name;
+  this.image_url = idx.image_url;
+  this.price = idx.price;
+  this.rating = idx.rating;
+  this.url = idx.url;
+}
+
 // Gets location data
 //request comes from front end via user input, response is data server sends back
 function handleLocation( request, response, next) {
@@ -140,11 +148,25 @@ function handleMovies(request, response, next) {
   superagent.get(moviesUrl)
     .then( moviesResponse => {
       let moviesData = moviesResponse.body.results;
-      console.log('test')
       response.status(200).send(moviesData.map( idx => new Movies(idx)
       ));
     })
     .catch( error => handleError('This movie is rated B for broken', request, response, next));
+}
+
+// get restaurants data
+function handleRestaurants(request, response, next) {
+  let {latitude, longitude} = request.query;
+  const yelpKey = process.env.YELP_API_KEY;
+  const yelpUrl = `https://api.yelp.com/v3/businesses/search?latitude=${latitude}&longitude=${longitude}&term=restaurants`;
+
+  superagent.get(yelpUrl)
+    .set({ 'Authorization': 'Bearer ' + yelpKey})
+    .then(yelpResponse => {
+      let yelpData = yelpResponse.body.businesses;
+      response.status(200).send(yelpData.map( idx => new Restaurant(idx)))
+    })
+    .catch( error => handleError('Sorry, closed for repairs!', request, response, next));
 }
 
 // error handlers
@@ -161,9 +183,10 @@ app.use(cors());
 app.get('/location', handleLocation);
 app.get('/weather', handleWeather);
 app.get('/trails', handleTrails);
-app.get('/movies', handleMovies)
+app.get('/movies', handleMovies);
+app.get('/yelp', handleRestaurants);
 app.use(handleError);
-app.use('*', routeError)
+app.use('*', routeError);
 
 
 // Start our server, and listen for requests
