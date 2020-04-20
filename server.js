@@ -51,6 +51,17 @@ function Trails(idx) {
   this.condition_time = idx.conditionDate.slice(11, 19);
 }
 
+// Creates movies objects
+function Movies(idx) {
+  this.title = idx.title;
+  this.overview = idx.overview;
+  this.average_votes = idx.vote_average;
+  this.total_votes = idx.vote_count;
+  this.image_url = `https://image.tmdb.org/t/p/w500${idx.backdrop_path}`;
+  this.popularity = idx.popularity;
+  this.released_on = idx.release_date;
+}
+
 // Gets location data
 //request comes from front end via user input, response is data server sends back
 function handleLocation( request, response, next) {
@@ -65,12 +76,10 @@ function handleLocation( request, response, next) {
   dbClient.query(searchSQL, searchValues)
     .then(sqlResults => {
       if (sqlResults.rows[0]) {
-        console.log('found in DB');
         response.status(200).send(sqlResults.rows[0]);
       } else {
         superagent.get(locationURL)
           .then(locationResponse => {
-            console.log('in superagent');
             let location = new Location(cityQuery, locationResponse.body[0]);
             let insertSQL = `INSERT INTO locations (search_query, formatted_query, latitude, longitude) Values ($1, $2, $3, $4) RETURNING *`;
             let insertValues = [location.search_query, location.formatted_query, location.latitude, location.longitude];
@@ -91,8 +100,8 @@ function handleWeather(request, response, next) {
   const weatherUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weatherKey}&lang=en&units=I&days=7&lat=${latitude}&lon=${longitude}`;
   
   superagent.get(weatherUrl)
-    .then(value => {
-      const weather = value.body.data;
+    .then(weatherResponse => {
+      const weather = weatherResponse.body.data;
       
       response.send(weather.map( idx => {
         return new Forecast(idx.datetime, idx.weather.description)
@@ -110,8 +119,8 @@ function handleTrails(request, response, next) {
   const trailsUrl = `https://www.hikingproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&maxDistance=10&key=${trailsKey}`
 
   superagent.get(trailsUrl)
-    .then( element => {
-      const trails = element.body.trails;
+    .then( trailsResponse => {
+      const trails = trailsResponse.body.trails;
       let hikes = trails.map( idx => {
         return new Trails(idx)
       });
@@ -122,11 +131,25 @@ function handleTrails(request, response, next) {
     });
 }
 
+// get movies data
+function handleMovies(request, response, next) {
+  let city = request.query.search_query;
+  const moviesKey = process.env.MOVIE_API_KEY;
+  const moviesUrl = `https://api.themoviedb.org/3/search/movie?api_key=${moviesKey}&query=${city}`;
+
+  superagent.get(moviesUrl)
+    .then( moviesResponse => {
+      let moviesData = moviesResponse.body.results;
+      response.status(200).send(moviesData.map( idx => new Movies(idx)
+      ));
+    })
+    .catch( error => handleError('This movie is rated B for broken', request, response, next));
+}
+
 // error handlers
 function routeError(error, request, response, next) {
   response.status(404).send('Route not found')
 }
-
 
 function handleError(error, request, response, next) {
   response.status(500).send(error);
@@ -137,6 +160,7 @@ app.use(cors());
 app.get('/location', handleLocation);
 app.get('/weather', handleWeather);
 app.get('/trails', handleTrails);
+app.get('/movies', handleMovies)
 app.use(handleError);
 app.use('*', routeError)
 
