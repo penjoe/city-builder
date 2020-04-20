@@ -140,6 +140,7 @@ function handleMovies(request, response, next) {
   superagent.get(moviesUrl)
     .then( moviesResponse => {
       let moviesData = moviesResponse.body.results;
+      console.log('test')
       response.status(200).send(moviesData.map( idx => new Movies(idx)
       ));
     })
