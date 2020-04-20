@@ -18,6 +18,7 @@ Joe Pennock - Full-stack JavaScript Developer - [GitHub](https://github.com/penj
 - 3.2.1 - added connection to db
 - 3.2.2 - db connection successful, rendering to page, not storing data
 - 3.3.0 - db connection successful, rendering to page, successfully storing data in db, deployed to Heroku
+- 4.1.0 - added a movies api to get movie data for the location entered
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ###  Progress 
@@ -61,7 +62,7 @@ This project was built with:
 - 04-16-2020 03:00am - get trails list from API -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/10)
 - 04-16-2020 12:154am - SQL DB setup -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/12)
 - 04-19-2020 4:52pm - populate database with data pulled from API query, deployed to Heroku -  [GitHub PR](https://github.com/penjoe/city-explorer-api/pull/14)
-- 04-19-2020 
+- 04-20-2020 - added movies api - [GitHib PR](https://github.com/penjoe/city-explorer-api/pull/16)
 
 ## Collaborators
 - [Matthew Stewart](https://github.com/matthewadamstewart) :  pair programming partner 04/14/2020
@@ -123,4 +124,11 @@ This project was built with:
 - Start time: 11:41pm 4/16/2020
 - Finish time: 4:52pm 4/19/2020
 - Actual time needed to complete: 6 hours
+<hr>
+
+- Number and name of feature: Feature #9 add movies api
+- Estimate of time needed to complete: 2
+- Start time: 2:30am 4/20/2020
+- Finish time: 3:51am 4/20/2020
+- Actual time needed to complete: 1.5 hours
 <hr>
